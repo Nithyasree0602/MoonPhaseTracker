@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonPhase Tracker</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #F8F4EC 40%, #FF9BD2 100%);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #D63484;
+            font-size: 5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px #402B3A;
+        }
+
+        h2 {
+            color: #402B3A;
+            font-size: 1.5em;
+            margin-top: 0.5em;
+            margin-bottom: 2em;
+        }
+
+        .button {
+            background-color: #402B3A;
+            color: #F8F4EC;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            box-shadow: 2px 2px 8px #402B3A;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #FF9BD2;
+            color: #402B3A;
+        }
+
+        /* Add a subtle animation to the background */
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            animation: backgroundShift 10s ease infinite;
+            background-size: 200% 200%;
+        }
+    </style>
+</head>
+<body>
+    <h1>MoonPhase Tracker</h1>
+    <h2>Your personalized periods tracking app</h2>
+    <button class="button" onclick="loginClicked()",href="login">Log in</button>
+    <button class="button" onclick="signupClicked()",href="'signup">Sign up</button>
+    <script>
+        function loginClicked(){
+            window.location.href="{% url 'login' %}";
+        }
+        function signupClicked(){
+            window.location.href="{% url 'signup' %}";
+        }
+    </script>
+    
+</body>
+</html>

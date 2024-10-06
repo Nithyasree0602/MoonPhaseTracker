@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker - Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da; /* Light Pink (Reflecting femininity) */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #c2185b; /* Deep Pink (Reflecting femininity and strength) */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #c2185b; /* Deep Pink (Reflecting femininity and strength) */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8c0032; /* Darker Pink (Reflecting femininity and strength) */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Settings</h1>
+        <form id="settings-form">
+            <label for="notification">Notification Time:</label>
+            <input type="time" id="notification" name="notification">
+            <small>Set the time to receive daily notifications</small>
+
+            <label for="cycle-length">Cycle Length (days):</label>
+            <input type="number" id="cycle-length" name="cycle-length" min="20" max="45">
+            <small>Enter the average length of your menstrual cycle</small>
+
+            <label for="period-length">Period Length (days):</label>
+            <input type="number" id="period-length" name="period-length" min="1" max="7">
+            <small>Enter the average length of your menstrual period</small>
+
+            <label for="reminder">Period Reminder:</label>
+            <select id="reminder" name="reminder">
+                <option value="none">None</option>
+                <option value="day-before">Day Before</option>
+                <option value="two-days-before">Two Days Before</option>
+            </select>
+            <small>Choose when to receive a reminder for your upcoming period</small>
+
+            <label for="pregnant">Are you pregnant?</label>
+            <select id="pregnant" name="pregnant">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <small>Indicate whether you are currently pregnant</small>
+
+            <button type="submit">Save Settings</button>
+        </form>
+        <div id="success-message" style="display: none; color: green;">
+            Saved successfully
+        </div>
+
+        <!-- Container to display next period information -->
+        <div id="next-period-container" style="margin-top: 20px;"></div>
+    </div>      
+
+    <script>
+        const form = document.getElementById('settings-form');
+        const successMessage = document.getElementById('success-message');
+        const nextPeriodContainer = document.getElementById('next-period-container');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from submitting normally
+            
+            // Get the entered cycle length and period length
+            const cycleLength = parseInt(document.getElementById('cycle-length').value);
+            const periodLength = parseInt(document.getElementById('period-length').value);
+            
+            // Calculate the next period date based on today's date and cycle length
+            const today = new Date();
+            const nextPeriodDate = new Date(today.getTime() + cycleLength * 24 * 60 * 60 * 1000);
+            
+            // Calculate the end date of the next period
+            const nextPeriodEndDate = new Date(nextPeriodDate.getTime() + periodLength * 24 * 60 * 60 * 1000);
+            
+            // Calculate the number of days left until the next period
+            const daysLeft = Math.ceil((nextPeriodDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000));
+            
+            // Update the content of the next period container
+            nextPeriodContainer.innerHTML = `
+                <h2>Next Period Information</h2>
+                <p>Next Period Date: ${nextPeriodDate.toDateString()}</p>
+                <p>Days Left Until Next Period: ${daysLeft}</p>
+            `;
+
+            // Show the success message
+            successMessage.style.display = 'block';
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

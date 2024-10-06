@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonphase Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da; /* Light Pink (Reflecting femininity) */
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #c2185b; /* Deep Pink (Reflecting femininity and strength) */
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #c2185b; /* Deep Pink (Reflecting femininity and strength) */
+            padding: 0 15px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .calendar {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .calendar th {
+            background-color: #f2f2f2;
+        }
+
+        .calendar td {
+            cursor: pointer;
+        }
+
+        .calendar td.today {
+            background-color: #f8d7da; /* Light Pink (Reflecting femininity) */
+        }
+        .calendar td.selected {
+            background-color: #c2185b; /* Deep Pink (Reflecting femininity and strength) */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Moonphase Tracker</h1>
+        <div class="nav">
+            <a href="{% url 'sett'%}">Settings</a>
+            <a href="{% url 'diet' %}">Diet & Exercise</a>
+            <a href="{% url 'symptoms' %}">Add Notes</a>
+            <a href="{% url 'shop' %}">Shop</a>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <!-- Your content goes here --> 
+            <h2>Welcome to Moonphase Tracker!</h2>
+            <p>Here you can track your period, diet, exercise, and add notes.</p>
+            <p>Use the calendar to keep track of important dates and events.</p>
+            <p>Enjoy your journey!</p>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Calendar dates will be dynamically generated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Combined script with the existing and new functions
+        function generateCalendar() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var firstDayOfMonth = new Date(year, month, 1);
+            var lastDayOfMonth = new Date(year, month + 1, 0);
+            var daysInMonth = lastDayOfMonth.getDate();
+            var startingDay = firstDayOfMonth.getDay();
+
+            var table = document.getElementById('calendar-body');
+            table.innerHTML = '';
+
+            var date = 1;
+            var day = 1;
+
+            for (var i = 0; i < 6; i++) {
+                var row = document.createElement('tr');
+
+                for (var j = 0; j < 7; j++) {
+                    var cell = document.createElement('td');
+
+                    if (i === 0 && j < startingDay) {
+                        cell.textContent = '';
+                    } else if (day <= daysInMonth) {
+                        cell.textContent = day;
+                        cell.addEventListener('click', function() {
+                            toggleDateSelection(this);
+                        });
+                        day++;
+                    } else {
+                        cell.textContent = '';
+                    }
+
+                    row.appendChild(cell);
+                    date++;
+                }
+
+                table.appendChild(row);
+            }
+        }
+
+        function toggleDateSelection(cell) {
+            cell.classList.toggle('selected');
+        }
+
+        // Call generateCalendar function on page load
+        window.onload = generateCalendar;
+    </script>
+</body>
+</html>

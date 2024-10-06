@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8d7da;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .product {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .product h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 24px;
+      color: #c2185b;
+    }
+    .product-img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    .product p {
+      font-size: 18px;
+      color: #c2185b;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #c2185b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #8c0032;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product">
+      <h2 style="color: #c2185b;">Normal HotBag</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2nay_4Uvl4VRYlZq0wwFkDv1VW-AIClZQg&usqp=CAU" alt="Normal HotBag" class="product-img">
+      <p>Price: Rs.300</p>
+      <button class="btn" onclick="addToCart('Normal HotBag', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Electric HotBag</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfpMsiLBGPz-zBpK_MvkaWX6uIeBrhTaMx-Q&usqp=CAU" alt="Electric HotBag" class="product-img">
+      <p>Price: Rs.450</p>
+      <button class="btn" onclick="addToCart('Electric HotBag', 6.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">StayFree</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEWjALqr2CekKvJUgg1tSI3u-OIC4d1EzCOg&usqp=CAU" alt="StayFree" class="product-img">
+      <p>Price: Rs.60</p>
+      <button class="btn" onclick="addToCart('StayFree', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Sofy</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdK5gc-wmwBYGLquz1OiZXEGQqNcPto_WPw&usqp=CAU
+sofy" alt="Sofy" class="product-img">
+      <p>Price: Rs.150</p>
+      <button class="btn" onclick="addToCart('Sofy', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Whisper</h2>
+      <img src="https://m.media-amazon.com/images/I/51PYLYZnwSL.AC_UF1000,1000_QL80.jpg
+" alt="Whisper" class="product-img">
+      <p>Price: Rs.90</p>
+      <button class="btn" onclick="addToCart('Whisper', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">bella</h2>
+      <img src="https://m.media-amazon.com/images/I/51D0moU-KHL.AC_UF1000,1000_QL80.jpg" alt="bella" class="product-img">
+      <p>Price: Rs.70</p>
+      <button class="btn" onclick="addToCart('bella', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Comfy</h2>
+      <img src="https://www.bigbasket.com/media/uploads/p/l/40191720_3-comfy-snug-fit-value-pack-sanitary-pads.jpg
+comfy" alt="Comfy" class="product-img">
+      <p>Price: Rs.110</p>
+      <button class="btn" onclick="addToCart('Comfy', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Sirona</h2>
+      <img src="https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,dpr-2/static/img/product/322139/sirona-cottony-soft-rash-free-sanitary-pads-for-women-pack-of-30-xl-size-highly-absorbency-1_14_display_1694329889_373829ca.jpg" alt="Sirona" class="product-img">
+      <p>Price: Rs.80</p>
+      <button class="btn" onclick="addToCart('Sirona', 5.99)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2 style="color: #c2185b;">Everteen</h2>
+      <img src="https://media6.ppl-media.com//tr:h-750,w-750,c-at_max,dpr-2/static/img/product/191405/everteen-xxl-sanitary-napkin-pads-with-cottony-dry-top-layer-for-women-enriched-with-neem-and-safflower-1-pack-40-pads-320-mm_1_display_1695819195_9b0896a6.jpg" alt="Everteen" class="product-img">
+      <p>Price: Rs.90</p>
+      <button class="btn" onclick="addToCart('Everteen', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Softcare</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB2AuYpWIgAWvqTFv29iLZCL2s4yOviD9WPqZCWyRccbtMT7td8i8zoWIXTuaeCvOyyJE&usqp=CAU
+softcare" alt="Softcare" class="product-img">
+      <p>Price: Rs.100</p>
+      <button class="btn" onclick="addToCart('Softcare', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Sofy tampons</h2>
+      <img src="https://www.sofy.in/wp-content/uploads/2018/12/Regual-10N-3-1.png" alt="Sofy tampons" class="product-img">
+      <p>Price: Rs.150</p>
+      <button class="btn" onclick="addToCart('Sofy tampons', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Mensural cup</h2>
+      <img src="https://images.healthshots.com/healthshots/en/uploads/2022/06/26222235/menstrual-cup-size-1600x900.jpg" alt="Mensural cup" class="product-img">
+      <p>Price: Rs.250</p>
+      <button class="btn" onclick="addToCart('Mensural cup', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Tampax pearl</h2>
+      <img src="https://m.media-amazon.com/images/I/81M4jEPOtjL.AC_UF1000,1000_QL80.jpg" alt="Tampax pearl" class="product-img">
+      <p>Price: Rs.170</p>
+      <button class="btn" onclick="addToCart('Tampax pearl', 5.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2 style="color: #c2185b;">Fem</h2>
+      <img src="https://www.bigbasket.com/media/uploads/p/l/40290165_2-fem-ultra-care-sanitary-pads-xl-with-wings-cottony-cover-2x-more-absorption.jpg" alt="Fem" class="product-img">
+      <p>Price: Rs.80</p>
+      <button class="btn" onclick="addToCart('Fem', 5.99)">Add to Cart</button>
+    </div>
+  </div>
+
+  <script>
+    // Define a variable to hold the cart items
+    let cart = [];
+
+    // Function to add product to the cart
+    function addToCart(productName, price) {
+      // Define the product object
+      let product = {
+        name: productName,
+        price: price
+      };
+
+      // Add the product to the cart array
+      cart.push(product);
+
+      // Alert the user that the product has been added to the cart
+      alert('Product added to cart!');
+
+      // You can optionally update the cart display here
+    }
+  </script>
+</body>
+</html>
